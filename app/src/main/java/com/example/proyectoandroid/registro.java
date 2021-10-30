@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -26,18 +27,18 @@ public class registro extends AppCompatActivity {
 
     public void registroDatos(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "usuarios", null, 1);
+                "users", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String identification = et1.getText().toString();
         String nombre = et2.getText().toString();
         String correo = et3.getText().toString();
         String usuario= et4.getText().toString();
-        ContentValues registro = new ContentValues();
-        registro.put("identificacion", identification);
-        registro.put("nombre", nombre);
-        registro.put("correo", correo);
-        registro.put("usuario", usuario);
-        bd.insert("usuarios", null, registro);
+        ContentValues registrar = new ContentValues();
+        registrar.put("identificacion", identification);
+        registrar.put("nombre", nombre);
+        registrar.put("correo", correo);
+        registrar.put("usuario", usuario);
+        bd.insert("usuarios", null, registrar);
         bd.close();
         et1.setText("");
         et2.setText("");
@@ -51,4 +52,6 @@ public class registro extends AppCompatActivity {
         Intent consultar = new Intent(this, Consulta.class);
         startActivity(consultar);
     }
+
+
 }

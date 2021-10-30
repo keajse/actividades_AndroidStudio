@@ -25,7 +25,7 @@ public class Consulta extends AppCompatActivity {
 
     public void consulta(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "usuarios", null, 1);
+                "users", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String identificacion = et1.getText().toString();
         Cursor fila = bd.rawQuery(
@@ -43,7 +43,7 @@ public class Consulta extends AppCompatActivity {
 
     public void borrar(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "usuarios", null, 1);
+                "users", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String identificacion = et1.getText().toString();
         int cant = bd.delete("usuarios", "identificacion=" + identificacion, null);
@@ -62,7 +62,7 @@ public class Consulta extends AppCompatActivity {
 
     public void modificacion(View v) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "usuarios", null, 1);
+                "users", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         String identificacion = et1.getText().toString();
         String nombre = et2.getText().toString();
