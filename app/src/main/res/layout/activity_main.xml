@@ -70,12 +70,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp">
+
         <Button
             android:id="@+id/Ingresar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingresar"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="iniciar"
+            android:text="Ingresar" />
 
         <Space
             android:layout_width="20dp"

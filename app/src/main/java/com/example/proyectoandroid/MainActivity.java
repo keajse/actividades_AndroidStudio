@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,10 +16,34 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText et1, et2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        et1 = (EditText) findViewById(R.id.editTextUsuario);
+        et2 = (EditText) findViewById(R.id.editTextContrasenia);
+    }
+
+    public void iniciar(View v) {
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
+                "users", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String identificacion = et1.getText().toString();
+        Cursor fila = bd.rawQuery(
+                "select identificacion  from usuarios where identificacion=" + identificacion, null);
+        if (fila.moveToFirst()) {
+            Toast.makeText(this, "Bienvenido",
+                    Toast.LENGTH_SHORT).show();
+                    galeria(null);
+
+        } else
+            Toast.makeText(this, "No existe una persona con dicha identificación",
+                    Toast.LENGTH_SHORT).show();
+        bd.close();
+
     }
 
 
@@ -48,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(mapa);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu mimenu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mimenu, mimenu);
@@ -74,5 +99,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
-    }
+    }*/
 }
