@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".registro"
+    tools:context=".Consulta"
     android:orientation="vertical"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="30dp"
     android:layout_marginLeft="60dp"
-    android:layout_marginRight="60dp"
-    >
+    android:layout_marginRight="60dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Formulario"
+        android:text="Consulta"
         android:textColor="#641E16"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -190,25 +189,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical">
+        android:layout_marginTop="40dp">
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="registroDatos"
-            android:text="Registrarse" />
-
-        <Button
-            android:id="@+id/btnConsulta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Consultar"
-            android:text="Consultar" />
+            android:onClick="consulta"
+            android:text="Consultar por identificación" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
 
+        <Button
+            android:id="@+id/btnModificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="modificacion"
+            android:text="Modificar" />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnBorrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="borrar"
+            android:text="Borrar" />
+
+    </LinearLayout>
 
 </LinearLayout>
