@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         String identificacion = et1.getText().toString();
         Cursor fila = bd.rawQuery(
                 "select identificacion  from usuarios where identificacion=" + identificacion, null);
+
         if (fila.moveToFirst()) {
             Toast.makeText(this, "Bienvenido",
                     Toast.LENGTH_SHORT).show();

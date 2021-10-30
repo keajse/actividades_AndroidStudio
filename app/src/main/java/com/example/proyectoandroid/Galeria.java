@@ -42,6 +42,11 @@ public class Galeria extends AppCompatActivity {
         startActivity(mapa);
     }
 
+    public void home(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu mimenu) {
         MenuInflater inflater = getMenuInflater();
@@ -64,6 +69,9 @@ public class Galeria extends AppCompatActivity {
                 return true;
             case R.id.mapa:
                 mapa(null);
+                return true;
+            case R.id.home:
+                home(null);
                 return true;
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
